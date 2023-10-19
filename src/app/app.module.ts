@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,13 +10,16 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { RegistrationComponent } from './components/registration/registration/registration.component';
+import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AddLoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ForgetPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,9 @@ import { RegistrationComponent } from './components/registration/registration/re
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

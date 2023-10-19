@@ -1,24 +1,32 @@
-.int-fild{
-    height: 10px;
-}
 
+
+
+.main-frame-login{
+    
+    padding-top: 5%;
+    padding-left: 35%;
+    padding-right: 35%;
+    
+}
 .main-container{
    
     display: flex;
     flex-direction: column;
-    margin: 50px 500px 0px 500px;
+    width: 100%;
     text-align: center;
     border: thin;
     border-radius: 10px;
     border-color:cadetblue;
-    padding: 40px 0px 80px 0px;
+    padding: 10px 10px 10px 10px;
     box-shadow: 0 0 2px 2px cyan;
-
 }
 
 
 
+
+
 .login-container{
+    padding: 50px 50px 50px 50px;
     
 }
 .head-title-sign1{
@@ -33,39 +41,169 @@
 
 
 .int-fild-id{
-    width: 70%;
+    width: 100%;
     margin: 0px 0px 0px 0px;
 }
 
 .int-fild-pass{
-    width: 70%;
+    width: 100%;
     margin: 0px 0px 0px 0px;
 }
 
 .forget{
-    margin: 0px 240px 0px 0px;
-    padding: 0px 0px 0px 0px;
+  float: left;
 }
 
 .bottom-container{
-    display: flex;
-    margin: 50px 65px 0px 65px;
-    padding: 5px 10px 5px 10px;
+
+display: flex;
+width: inherit;
+padding-left: 30px;
+padding-right: 30px;
+padding-bottom: 30px;
+padding-top: 30px;
+gap: 40%;
+
 }
 
 .create-btn{
     
-   
-
 }
 
 
 
 .login-btn{
-    padding: 0px 0px 0px 165px;
+    
 }
 
 
 .antocr2{
     text-decoration: none;
 }
+
+
+
+
+  @media screen and (max-width: 390px) and (min-width: 250px) {
+
+    .main-frame-login{
+        
+        padding-top: 5%;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .bottom-container{
+        gap: 5%;
+        width: inherit;
+    }
+    
+  }
+
+  @media screen and (max-width: 420px) and (min-width: 390px) {
+
+    .main-frame-login{
+        
+        padding-top: 5%;
+        padding-left: 15%;
+        padding-right: 65%;
+       
+    }
+
+    .bottom-container{
+        gap: 5%;
+    }
+    
+  }
+
+  @media screen and (max-width: 550px) and (min-width: 390px) {
+
+    .main-frame-login{
+        
+        padding-top: 5%;
+        padding-left: 5%;
+        padding-right: 18%;
+    }
+
+    .bottom-container{
+        gap: 30%;
+    }
+    
+  }
+
+
+  @media screen and (max-width: 880px) and (min-width: 550px) {
+
+    .main-frame-login{
+        
+        padding-top: 5%;
+        padding-left: 10%;
+        padding-right: 20%;
+    }
+
+    .bottom-container{
+        gap: 50%;
+    }
+    
+  }
+
+  @media screen and (max-width: 2000px) and (min-width: 880px) {
+
+    .main-frame-login{
+        
+        padding-top: 5%;
+        padding-left: 35%;
+        padding-right: 35%;
+    }
+
+    .bottom-container{
+        gap: 45%;
+    }
+    
+  }
+
+
+
+
+//   @media screen and (max-width: 900px) {
+
+//     .main-frame-login{
+//         padding-top: 5%;
+//         padding-left: 10%;
+//         padding-right: 10%;
+//     }
+
+   
+    
+//   }
+
+
+//   @media screen and (max-width: 1200px) {
+
+//     .main-frame-login{
+    
+      
+//         padding-top: 5%;
+//         padding-left: 35%;
+//         padding-right: 35%;
+//     }
+
+//     .bottom-container{
+//         gap: 20%;
+//     }
+    
+//   }
+
+//   @media screen and (max-width: 2000px) {
+
+//     .main-frame-login{
+    
+      
+//         padding-top: 5%;
+//         padding-left: 35%;
+//         padding-right: 35%;
+//     }
+
+  
+    
+//   }
