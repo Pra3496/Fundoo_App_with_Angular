@@ -1,0 +1,36 @@
+
+.example-card {
+    max-width: 500px;
+    align-content: center;
+    margin-top: 5%;
+    margin-left: 30%;
+    
+  }
+.card-head-pin-icon{
+    float: right;
+}
+
+input[type="text"],
+textarea {
+ border: none;
+  outline: none;
+  resize: none;
+  width: inherit;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.icon-h-bar{
+    display: flex;
+    margin-left: 2%;
+    gap: 10%;
+    width: 100%;
+
+  }
+
+  .main-card{
+    max-width: 500px;
+    position: relative;
+    margin-top: 5%;
+    margin-left: 30%;
+  }

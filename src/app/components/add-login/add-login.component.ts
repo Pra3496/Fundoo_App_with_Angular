@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatSnackBar, MatSnackBarRef, MatSnackBarModule} from '@angular/material/snack-bar';
+import { UserService } from '../../services/user.service';
+
 
 @Component({
   selector: 'app-add-login',
@@ -8,41 +10,46 @@ import {MatSnackBar, MatSnackBarRef, MatSnackBarModule} from '@angular/material/
   styleUrls: ['./add-login.component.scss']
 })
 export class AddLoginComponent implements OnInit{
-  registerForm!: FormGroup;
+  loginForm!: FormGroup;
   submitted = false;      
 
-  constructor(private formBuilder: FormBuilder, private _snackBar: MatSnackBar) { }
+  constructor(private formBuilder: FormBuilder, private _snackBar: MatSnackBar,private _userService: UserService) { }
 
   ngOnInit() 
   {
-      this.registerForm = this.formBuilder.group({
+      this.loginForm = this.formBuilder.group({
           email: ['', [Validators.required, Validators.email]],
           password: ['', [Validators.required, Validators.minLength(6)]]
       });
   }
 
       // convenience getter for easy access to form fields
-      get f() { return this.registerForm.controls; }
+      get f() { return this.loginForm.controls; }
 
       onSubmit() 
       {
           this.submitted = true;
   
           // stop here if form is invalid
-          if (this.registerForm.invalid)
+          if (this.loginForm.invalid)
           {
               this._snackBar.open("Invalid Data","close");
               return;
           }
-  
-          // display form values on success
-          alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+
+          this._userService.LoginUser(this.loginForm.value.email,this.loginForm.value.password);
+
+            
+         
       }
-  
+
       onReset() 
       {
           this.submitted = false;
-          this.registerForm.reset();
+          this.loginForm.reset();
       }
+
+      
+  
 
 }

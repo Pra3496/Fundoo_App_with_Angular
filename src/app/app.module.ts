@@ -12,14 +12,29 @@ import {MatButtonModule} from '@angular/material/button';
 import { RegistrationComponent } from './components/registration/registration/registration.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { NgIf } from '@angular/common';
+import { MatSidenavModule } from '@angular/material/sidenav'; 
+import { NgFor } from '@angular/common';
+import { NotesComponent } from './components/notes/notes.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { GetAllnotesComponent } from './components/get-allnotes/get-allnotes.component';
+import { DisplaynotesComponent } from './components/displaynotes/displaynotes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddLoginComponent,
     RegistrationComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    DashboardComponent,
+    NotesComponent,
+    GetAllnotesComponent,
+    DisplaynotesComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +45,16 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    HttpClientModule,
+    NgIf,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    NgFor,
+    MatCardModule,
+    MatCheckboxModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

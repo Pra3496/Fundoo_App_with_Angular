@@ -1,0 +1,112 @@
+
+.example-card {
+    max-width: 250px;
+  }
+
+  .main-card-container{
+    display:none;
+    background-color:white;
+    max-width: 500px;
+
+    padding: 0.7% 0.7% 0.7% 0.7%;
+    border-radius: 5px;
+    box-shadow: 0 0 0.8px 0.8px cyan;
+  }
+
+  .card-head{
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  input[type="text"],
+  textarea {
+   border: none;
+    outline: none;
+    resize: none;
+    display:block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+
+  .card-middle-content{
+    width: 90%;
+
+  }
+
+  
+
+    .card-head-pin-icon{
+        margin-top: 1%;
+        text-align: center;
+
+        
+    }
+
+
+  .card-middle{
+    
+    
+  }
+
+  .card-update{
+    font-size: 60%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0% 2% 0% 2%;
+    
+  }
+
+  .card-update-create{
+    
+    padding: 5% 5% 5% 5%;
+  }
+    .card-update-create-cont{
+        text-align: left;
+        border-radius: 10px;
+    }
+
+  .card-update-edit{
+    text-align:right;
+  }
+
+
+
+  .card-bottom{
+    display: grid;
+   grid-template-columns: 4fr 1fr;
+   background-color: white;
+   
+ }
+ 
+ .icon-bar{
+     display: flex;
+     flex-wrap: nowrap;
+ 
+ }
+
+  .icon-bar > div{
+     max-width: 30%;
+     margin: 20px;
+     text-align: center;
+     font-size: 15px;
+  }
+
+
+  
+  .icon-close{
+    
+       padding-top: 20%;
+       text-align: center;
+       
+  }
+
+
+  .icon-h-bar{
+    display: flex;
+    gap: 12%;
+    width: 100%;
+
+  }
+
+  
