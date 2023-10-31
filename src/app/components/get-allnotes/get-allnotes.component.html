@@ -1,4 +1,8 @@
 
-<app-displaynotes></app-displaynotes>
-<app-notes></app-notes>
+<app-displaynotes (messageEventToCreateNote) = "SendToGetFromDisplay($event)"></app-displaynotes>
+
+
+<app-notes [noteArry]="noteArry" (messageEventNote)="receiveMessage($event)"></app-notes>
+
+
 

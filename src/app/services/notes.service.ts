@@ -3,49 +3,127 @@ import { HttpservicesService} from '../services/httpservices.service';
 import { HttpHeaders } from '@angular/common/http';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class NotesService {
+ 
   authToken!:any;
+  resposes:any;
   constructor(private httpservice: HttpservicesService) { 
     this.authToken = localStorage.getItem("token");
   }
 
-  CreateNote(email:string, password:string, firstName:string, lastName:string)
+  CreateNote(title:string, note:string)
   {
     let header = {
-      header: new HttpHeaders({
+      headers: new HttpHeaders({
         'Content-Type' : 'application/json',
-        'Authorization': this.authToken
+        'Authorization': 'Bearer '+this.authToken 
       }),
     };
 
     let payload = {
-      firstName: firstName,
-      lastName: lastName,
-      email:email,
-      password:password
+      tittle: title,
+      note: note,
+      color: null,
+      image: null,
+      remindMe: null
     }
 
 
-    this.httpservice.postService("/Note",payload,false,header);
+    return this.httpservice.postService("/Note",payload,true,header);
 
   }
 
-  GetNotes()
-  {
-    let header = {
-      header: new HttpHeaders({
-        'Content-Type' : 'application/json',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkZpcnN0QG1haWwuY29tIiwiVXNlcklEIjoiMTAiLCJuYmYiOjE2OTgyMzU4ODEsImV4cCI6MTY5ODIzNTk0MSwiaWF0IjoxNjk4MjM1ODgxfQ.Gw7ntsCQzXkSWbHwlErpuopWaWbVmI0OIPEz1w5VZig',
+    GetNotes()
+    {
+      let header = {
+        headers: new HttpHeaders({
+          'Content-Type' : 'application/json',
+          'Authorization': 'Bearer '+this.authToken
+          
+        }),
+      };
 
-      }),
-    };
-    console.log(header.header);
-    this.httpservice.getService("/Note",true,header).subscribe((response:any)=>{
-      console.log(response)
-    });
+      return this.httpservice.getService("/Note",true,header);
+    }
 
-  }
+
+    SetArchive(noteId:any)
+    {
+      let header = {
+        headers: new HttpHeaders({
+          'Content-Type' : 'application/json',
+          'Authorization': 'Bearer '+this.authToken
+          
+        }),
+      };
+
+      let payload = {
+        noteId:noteId
+      }
+
+      return this.httpservice.PatchServiceUri("/Note/Archive?NoteId="+noteId,payload,true,header);
+    }
+
+    setPin(noteId:any)
+    {
+      let header = {
+        headers: new HttpHeaders({
+          'Content-Type' : 'application/json',
+          'Authorization': 'Bearer '+this.authToken
+          
+        }),
+      };
+
+      let payload = {
+        noteId:noteId
+      }
+
+      return this.httpservice.PatchServiceUri("/Note/Pin?NoteId="+noteId,payload,true,header);
+    }
+
+    setTrash(noteId:any)
+    {
+      let header = {
+        headers: new HttpHeaders({
+          'Content-Type' : 'application/json',
+          'Authorization': 'Bearer '+this.authToken
+          
+        }),
+      };
+
+      let payload = {
+        noteId:noteId
+      }
+
+      return this.httpservice.PatchServiceUri("/Note/Trash?NoteId="+noteId,payload,true,header);
+    }
+
+
+    UpdateNote(data:any)
+    {
+      let header = {
+        headers: new HttpHeaders({
+          'Content-Type' : 'application/json',
+          'Authorization': 'Bearer '+this.authToken 
+        }),
+      };
+  
+      let payload = {
+        tittle: data.title,
+        note: data.note,
+        color: null,
+        image: null,
+        remindMe: null
+      }
+  
+  
+      return this.httpservice.PutServiceUri("/Note?NoteId="+data.noteId,payload,true,header);
+  
+    }
+
+ 
 }

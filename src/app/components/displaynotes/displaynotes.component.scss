@@ -1,9 +1,10 @@
 
 .example-card {
-    max-width: 500px;
+    max-width: 580px;
     align-content: center;
     margin-top: 5%;
     margin-left: 30%;
+    padding: 0% 0% 0% 0%;
     
   }
 .card-head-pin-icon{
@@ -23,9 +24,16 @@ textarea {
 .icon-h-bar{
     display: flex;
     margin-left: 2%;
-    gap: 10%;
+    
+    gap: 1%;
     width: 100%;
+   
 
+  }
+  
+  .icon-img{
+    height: 20px;
+    width: 20px;
   }
 
   .main-card{
@@ -33,4 +41,19 @@ textarea {
     position: relative;
     margin-top: 5%;
     margin-left: 30%;
+  }
+
+  .card-header{
+    display: flex;
+    position: sticky;
+    gap: 15px;
+    width: 100%;
+    padding: 2% 2% 1% 2%;
+   
+  }
+
+  .icon-img-close{
+    
+    margin-left: 25%;
+    float: right;
   }

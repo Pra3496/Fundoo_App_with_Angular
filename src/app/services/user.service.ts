@@ -12,7 +12,7 @@ export class UserService {
   CreateUser(email:string, password:string, firstName:string, lastName:string)
   {
     let header = {
-      header: new HttpHeaders({
+      headers: new HttpHeaders({
         'Content-Type' : 'application/json',
       }),
     };
@@ -25,14 +25,14 @@ export class UserService {
     }
 
 
-    this.httpservice.postService("/User/register",payload,false,header);
+    return this.httpservice.postService("/User/register",payload,false,header);
 
   }
 
   LoginUser(email:string, password:string)
   {
     let header = {
-      header: new HttpHeaders({
+      headers: new HttpHeaders({
         'Content-Type' : 'application/json',
       }),
     };
@@ -43,11 +43,25 @@ export class UserService {
     }
 
 
-    this.httpservice.postService("/User/login",payload,false,header).subscribe((response:any)=>{
-      console.log(response.data.token),
-      localStorage.setItem("token",response.data.token);
-    });
+    return this.httpservice.postService("/User/login",payload,false,header)
 
+  }
+
+
+  ForgetUser(email:string)
+  {
+    let header = {
+      headers: new HttpHeaders({
+        'Content-Type' : 'application/json',
+      }),
+    };
+
+    let payload = {
+      email:email
+    }
+
+
+    return this.httpservice.getServiceUri("/User/forgetpassword?email="+payload.email,false,header);
   }
 
 

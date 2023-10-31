@@ -2,11 +2,15 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  background-color: white;
+  
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  background-color: white;
 }
 
 .example-is-mobile .example-toolbar {
@@ -30,3 +34,42 @@ h1.example-app-name {
      `<body>` to be our scrolling element for mobile layouts. */
   flex: 1 0 auto;
 }
+
+.searchbox{
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  padding-top: 5px;
+  background: #f1f3f4;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  width: 77%;
+  height: 30px;
+  color: #2d2e2f;
+  margin-left: 80px;
+  outline: none;
+  //border: 1px solid blue;
+}
+.searchinput{
+  height: 25px;
+  border: none;
+  background: none;
+  width: 600px;
+  padding-left: 10px;
+  font-size: large;
+  outline: none;
+}
+
+.example-sidenav-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.list{
+  display: flex;
+  gap: 3%;
+}
+
+
+
+

@@ -24,6 +24,12 @@ import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { GetAllnotesComponent } from './components/get-allnotes/get-allnotes.component';
 import { DisplaynotesComponent } from './components/displaynotes/displaynotes.component';
+import { IconComponent } from './components/icon/icon.component';
+import { EditNoteComponent } from './components/edit-note/edit-note.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { GetArchiveComponent } from './components/get-archive/get-archive.component';
+import { GetTrashComponent } from './components/get-trash/get-trash.component';
+
 
 @NgModule({
   declarations: [
@@ -31,10 +37,15 @@ import { DisplaynotesComponent } from './components/displaynotes/displaynotes.co
     AddLoginComponent,
     RegistrationComponent,
     ForgetPasswordComponent,
-    DashboardComponent,
     NotesComponent,
     GetAllnotesComponent,
-    DisplaynotesComponent
+    DisplaynotesComponent,
+    IconComponent,
+    EditNoteComponent,
+    DashboardComponent,
+    GetArchiveComponent,
+    GetTrashComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -53,7 +64,8 @@ import { DisplaynotesComponent } from './components/displaynotes/displaynotes.co
     MatListModule,
     NgFor,
     MatCardModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule
 
   ],
   providers: [],

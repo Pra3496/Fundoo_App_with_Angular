@@ -29,7 +29,7 @@ export class AddLoginComponent implements OnInit{
       onSubmit() 
       {
           this.submitted = true;
-  
+          localStorage.clear();
           // stop here if form is invalid
           if (this.loginForm.invalid)
           {
@@ -37,10 +37,12 @@ export class AddLoginComponent implements OnInit{
               return;
           }
 
-          this._userService.LoginUser(this.loginForm.value.email,this.loginForm.value.password);
-
+          this._userService.LoginUser(this.loginForm.value.email,this.loginForm.value.password).subscribe((response:any)=>{
+            console.log(response.data.token),
+            localStorage.setItem("token",response.data.token),
+            window.location.href = "/dashboard";
             
-         
+          }); 
       }
 
       onReset() 

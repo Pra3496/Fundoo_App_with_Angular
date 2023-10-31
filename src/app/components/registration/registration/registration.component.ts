@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpservicesService} from '../../../services/httpservices.service';
-import { HttpHeaders } from '@angular/common/http';
-import {MatSnackBar, MatSnackBarRef, MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { UserService } from '../../../services/user.service';
+
 
 @Component({
   selector: 'app-registration',
@@ -45,21 +44,11 @@ export class RegistrationComponent implements OnInit{
               return;
           }
           
-
-          let header = {
-            header: new HttpHeaders({
-              'Content-Type' : 'application/json',
-            }),
-          };
-
-          let payload = {
-            firstName:this.registerForm.value.firstName,
-            lastName:this.registerForm.value.lastName,
-            email:this.registerForm.value.email,
-            password:this.registerForm.value.password
-          }
-
-          this._userService.CreateUser(this.registerForm.value.firstName,this.registerForm.value.lastName,this.registerForm.value.email,this.registerForm.value.password);
+          this._userService.CreateUser(this.registerForm.value.firstName,this.registerForm.value.lastName,this.registerForm.value.email,this.registerForm.value.password).subscribe((response:any)=>{
+            console.log(response)
+            
+          });
+      
           this.onReset();
       }
   

@@ -31,4 +31,28 @@ export class HttpservicesService {
 
   }
 
+  getServiceUri(url: string, token: boolean, httpOption: any = {}) {
+    return this.http.post(
+      this.baseUrl + url,
+      token && httpOption
+    );
+  }
+
+  
+  PatchServiceUri(url: string, reqdata: any, token: boolean, httpOption: any = {}) {
+    return this.http.patch(
+      this.baseUrl + url,
+      reqdata,
+      token && httpOption
+    );
+  }
+
+  PutServiceUri(url: string, reqdata: any, token: boolean, httpOption: any = {}) {
+    return this.http.put(
+      this.baseUrl + url,
+      reqdata,
+      token && httpOption
+    );
+  }
+
 }
