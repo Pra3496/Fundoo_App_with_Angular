@@ -125,7 +125,7 @@ export class GetAllnotesComponent {
     }
     
     this.addToNotes(Notedata);
-
+//
   }
 
   addToNotes(note:Note)
@@ -152,7 +152,7 @@ export class GetAllnotesComponent {
       tittle: noteUpdatedata.title,
       note: noteUpdatedata.note
     }
-
+//
     this.notes.UpdateNote(noteUpdatedata).subscribe((response:any)=>{
   
       index = this.noteArry.findIndex((note) => note.noteId === response.data.noteId),
@@ -200,4 +200,4 @@ export class GetAllnotesComponent {
  
 }
 
-
+//
