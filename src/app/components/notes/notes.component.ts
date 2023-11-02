@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import{EditNoteComponent } from '../../components/edit-note/edit-note.component';
 import {EventEmitter, Input, Output} from '@angular/core';
+
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
@@ -9,11 +10,13 @@ import {EventEmitter, Input, Output} from '@angular/core';
 })
 export class NotesComponent {
 
-  longText = `The.11111111111111111111111111111111111111`;
+  element!: any;
   @Input() noteArry: any;
   @Output() messageEventNote : EventEmitter<any> = new EventEmitter();
   noteTitle! : string
   noteContent!:string
+  setColor:any
+
 
     constructor(public dialog: MatDialog) {}
     
@@ -25,7 +28,14 @@ export class NotesComponent {
     }
 
     openDialog(note:any) {
+
+      let idName = String(note.noteId);
       
+      this.element = document.getElementById(idName);
+      this.element.style.opacity = '0';
+      
+  
+
       const dialogRef = this.dialog.open(EditNoteComponent,{
         width:"460px",
         height:"171px",
@@ -37,9 +47,19 @@ export class NotesComponent {
         if (result) {
           this.SendToGet(result);
         }
+        this.element.style.opacity = '100';
+        this.setColor = 'orange';
       });
     }
 
+    changecolor(chcolor:any){
+      return {
+        'background-color': chcolor.color
+        // 'background-image': 'url("../../../assets/images/back2.svg")'
+      };
+    }
+
+  
    
    
 }

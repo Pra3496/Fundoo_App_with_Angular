@@ -63,6 +63,16 @@ export class GetAllnotesComponent {
 
   receiveMessage($event:any):void
   {
+    let dataColor = {
+      noteId:$event.noteId,
+      option:$event.opte,
+      color:$event.color
+    }
+    if($event.color != null)
+    {
+      this.SetFuctionfromNote(dataColor);
+      return;
+    }
     let data = {
       noteId:$event.noteId,
       option:$event.opte,
@@ -75,6 +85,8 @@ export class GetAllnotesComponent {
       this.UpdateNote(data);
       return;
     }
+
+    
 
     this.SetFuctionfromNote(data);
   }
@@ -90,7 +102,7 @@ export class GetAllnotesComponent {
         alert("switch 2");
         break;
       case 3:
-        alert("switch 3");
+        this.changeColor(data);
         break;
       case 4:
         alert("switch 4");
@@ -141,6 +153,35 @@ export class GetAllnotesComponent {
     }
   }
 
+  UpdateNoteArry(data:any)
+  {
+    if(data.note != null)
+    {
+      for (const note of this.noteArry) {
+        if(note.noteId === data.noteId)
+        {
+          note.tittle = data.tittle;
+          note.note = data.note;
+          break;
+        }
+      }
+      console.log(this.noteArry);
+      return;
+    }
+    for (const note of this.noteArry) {
+      if(note.noteId === data.noteId)
+      {
+        note.color = data.color;
+        
+        break;
+      }
+    }
+
+    
+
+    
+  }
+
 
 
   UpdateNote(noteUpdatedata:any)
@@ -152,18 +193,30 @@ export class GetAllnotesComponent {
       tittle: noteUpdatedata.title,
       note: noteUpdatedata.note
     }
+
+    let payloadForArray = {
+      noteId: noteUpdatedata.noteId,
+      tittle: noteUpdatedata.title,
+      note: noteUpdatedata.note
+    }
 //
     this.notes.UpdateNote(noteUpdatedata).subscribe((response:any)=>{
-  
-      index = this.noteArry.findIndex((note) => note.noteId === response.data.noteId),
-      this.removeFromNotes(index),
-      itemToUpdate =  response.data,
+      this.UpdateNoteArry(payloadForArray)
+      // index = this.noteArry.findIndex((note) => note.noteId === response.data.noteId),
+      // this.removeFromNotes(index),
+      // itemToUpdate =  response.data,
 
-      this.addToNotes(itemToUpdate),
-      console.log(itemToUpdate)
+      // this.addToNotes(itemToUpdate),
+      // console.log(itemToUpdate)
     });
   }
  
+  changeColor(notedata:any)
+  {
+    this.UpdateNoteArry(notedata);
+  }
+
+
 
 
   IsTrash(notes:any)

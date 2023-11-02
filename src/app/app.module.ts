@@ -29,6 +29,8 @@ import { EditNoteComponent } from './components/edit-note/edit-note.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { GetArchiveComponent } from './components/get-archive/get-archive.component';
 import { GetTrashComponent } from './components/get-trash/get-trash.component';
+import { ColorpickerComponent } from './components/colorpicker/colorpicker.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -44,7 +46,8 @@ import { GetTrashComponent } from './components/get-trash/get-trash.component';
     EditNoteComponent,
     DashboardComponent,
     GetArchiveComponent,
-    GetTrashComponent
+    GetTrashComponent,
+    ColorpickerComponent
    
   ],
   imports: [
@@ -65,8 +68,8 @@ import { GetTrashComponent } from './components/get-trash/get-trash.component';
     NgFor,
     MatCardModule,
     MatCheckboxModule,
-    MatDialogModule
-
+    MatDialogModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

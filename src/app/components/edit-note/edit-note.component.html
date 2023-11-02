@@ -1,5 +1,5 @@
 
-    <mat-card class="example-card" >
+    <mat-card class="example-card" [ngStyle]="{'background-image': 'url(\'../../../assets/images/back2.svg\')'}" >
         <mat-card-header class="card-header">
             <mat-card-title>
             <textarea class="card-head-title" type="text" placeholder="Title" rows="1" cols="50" [value]="noteTitle" (change)="changeTitle($event)"></textarea>
