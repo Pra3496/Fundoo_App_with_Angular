@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild ,OnInit,EventEmitter, Input, Output} f
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotesService } from 'src/app/services/notes.service';
 
+
 @Component({
   selector: 'app-displaynotes',
   templateUrl: './displaynotes.component.html',
@@ -14,10 +15,9 @@ export class DisplaynotesComponent implements OnInit{
 
   @ViewChild('myDiv', { static: false }) myDiv!: ElementRef;
   @ViewChild('myicon', { static: false }) myicon!: ElementRef;
-  @ViewChild('myicon-t-1', { static: false }) myicon_1!: ElementRef;
-  @ViewChild('myicon-t-2', { static: false }) myicon_2!: ElementRef;
-  @ViewChild('myicon-t-3', { static: false }) myicon_3!: ElementRef;
+
   @Output() messageEventToCreateNote : EventEmitter<any> = new EventEmitter();
+
 
 
   // Function to toggle the display property of the div

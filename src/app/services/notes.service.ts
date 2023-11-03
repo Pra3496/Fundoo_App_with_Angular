@@ -125,5 +125,27 @@ export class NotesService {
   
     }
 
+    
+    UpdateColor(data:any)
+    {
+      let header = {
+        headers: new HttpHeaders({
+          'Content-Type' : 'application/json',
+          'Authorization': 'Bearer '+this.authToken 
+        }),
+      };
+  
+      let payload = {
+        noteId: data.noteId,
+        color: data.color
+      }
+  
+  
+      return this.httpservice.PatchServiceUri("/Note/Color?color="+payload.color+"&NoteId="+data.noteId,payload,true,header);
+  
+    }
+
+
+
  
 }

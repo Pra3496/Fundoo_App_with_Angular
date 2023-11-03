@@ -1,12 +1,9 @@
 
-import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
+import {ChangeDetectorRef, Component,OnInit, OnDestroy} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
-import {MatListModule} from '@angular/material/list';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {NgIf, NgFor} from '@angular/common';
+
+import { DataserviceService } from 'src/app/services/dataservice.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -30,11 +27,18 @@ export class DashboardComponent implements OnDestroy{
   // );
 
   private _mobileQueryListener: () => void;
+  
+  searchValue : string='';
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private dataservice:DataserviceService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+  }
+
+  ngOnInit()
+  {
+    
   }
 
   ngOnDestroy(): void {
@@ -45,6 +49,13 @@ export class DashboardComponent implements OnDestroy{
 
   showAlert(message: string) {
     alert(message);
+  }
+
+
+  updateData(){
+
+    this.dataservice.changedata(this.searchValue);
+
   }
  
 }

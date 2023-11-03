@@ -61,14 +61,43 @@ h1.example-app-name {
 }
 
 .example-sidenav-container{
-  display: flex;
-  flex-direction: column;
+  flex:1;
+  
+
 }
 
 .list{
   display: flex;
   gap: 3%;
+  width: 100%;
 }
+
+.sideNav{
+  width: 18%;
+  
+
+}
+
+.sideNav_list{
+  width: 100%;
+  gap:  0 10px;
+}
+
+.list{
+display: flex;
+width: 95%;
+border-radius: 0px 25px 25px 0px;
+padding: 5% 0% 5% 3%;
+}
+.spans{
+  padding-top: 3%;
+  font-size: 20px;
+}
+
+.list:hover{
+ background-color: #ebbf3a;
+ opacity: 80%;
+  }
 
 
 

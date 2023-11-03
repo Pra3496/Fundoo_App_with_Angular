@@ -1,6 +1,7 @@
 
+
 <div class="note-show">
-  <div *ngFor="let note of noteArry" class="main-container" id="{{note.noteId}}" [ngStyle]="changecolor(note)">
+  <div *ngFor="let note of noteArrData | searchNote: myValue" class="main-container" id="{{note.noteId}}" [ngStyle]="changecolor(note)">
     
        <div class="container" (click)="openDialog(note)" >
          <h4><b>{{note.tittle}}</b></h4> 

@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component,OnInit,OnDestroy, EventEmitter,Output } from '@angular/core';
 import { NotesService } from 'src/app/services/notes.service';
 import { Observable, throwError } from 'rxjs';
 import { catchError, window } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { DataserviceService } from 'src/app/services/dataservice.service';
+import { Subscription } from 'rxjs';
 
 interface Note{
   noteId:number;
@@ -30,33 +32,56 @@ interface Note{
 
 
 
-export class GetAllnotesComponent {
+export class GetAllnotesComponent implements OnInit, OnDestroy {
+  
+  
+  responseSuccessul = false;
+  myValue!: string;
   
   noteArry: Note[] = []; 
-  responseSuccessul = false;
-
-  constructor(private notes:NotesService,private router: Router)
+  subscription!: Subscription;
+  constructor(private notes:NotesService,private router: Router, private dataservice:DataserviceService)
   {
-    
     
   }
 
-  ngOnInit()
-  {
-    this. GetAllNotes();
+  ngOnInit() {
+    
+    this.GetAllNotes();
+    this.subscription = this.dataservice.currentMessage.subscribe(note => this.noteArry = note);
 
-   
+    if (!this.myValue) {
+      this.noteArry = this.noteArry;
+    }
+  
+    this.noteArry = this.noteArry.filter(
+      note => note.tittle.toLowerCase().includes(this.myValue.toLowerCase()) || note.note.toLowerCase().includes(this.myValue.toLowerCase())
+    );
+    console.log(this.noteArry);
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   GetAllNotes()
   {
+    let noteArryRespone:any[];
     this.notes.GetNotes().subscribe((response:any)=>{
-      this.noteArry=response.data.filter((note:any) => note.isArchive == false && note.isPin == false && note.isTrash == false),
-      console.log(this.noteArry),
-      this.responseSuccessul = true;
-
+      noteArryRespone=response.data.filter((note:any) => note.isArchive == false && note.isPin == false && note.isTrash == false),
+      this.dataservice.changeMessage(noteArryRespone);
+      this.subscription = this.dataservice.currentMessage.subscribe(note => this.noteArry = note);
+      console.log(this.noteArry);
+      this.responseSuccessul = true
     });
     
+  }
+
+  NoteSerch(event:any)
+  {
+   
+    console.log(event.target.value);
+
   }
 
 

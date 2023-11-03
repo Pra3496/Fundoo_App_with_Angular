@@ -31,6 +31,8 @@ import { GetArchiveComponent } from './components/get-archive/get-archive.compon
 import { GetTrashComponent } from './components/get-trash/get-trash.component';
 import { ColorpickerComponent } from './components/colorpicker/colorpicker.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { FormsModule } from '@angular/forms';
+import { SearchNotePipe } from './components/Pipes/search-note.pipe';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import {MatMenuModule} from '@angular/material/menu';
     DashboardComponent,
     GetArchiveComponent,
     GetTrashComponent,
-    ColorpickerComponent
+    ColorpickerComponent,
+    SearchNotePipe,
+    
    
   ],
   imports: [
@@ -69,7 +73,9 @@ import {MatMenuModule} from '@angular/material/menu';
     MatCardModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatMenuModule
+    MatMenuModule,
+    FormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
