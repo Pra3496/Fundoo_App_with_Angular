@@ -134,14 +134,13 @@ export class NotesService {
           'Authorization': 'Bearer '+this.authToken 
         }),
       };
-  
+      
       let payload = {
         noteId: data.noteId,
         color: data.color
       }
   
-  
-      return this.httpservice.PatchServiceUri("/Note/Color?color="+payload.color+"&NoteId="+data.noteId,payload,true,header);
+      return this.httpservice.PatchServiceUri("/Note/Color?color="+payload.color+"&NoteId="+payload.noteId,payload,true,header);
   
     }
 

@@ -50,7 +50,7 @@ import { SearchNotePipe } from './components/Pipes/search-note.pipe';
     GetArchiveComponent,
     GetTrashComponent,
     ColorpickerComponent,
-    SearchNotePipe,
+    SearchNotePipe
     
    
   ],

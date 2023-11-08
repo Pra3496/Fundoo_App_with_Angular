@@ -1,39 +1,27 @@
 
-    <mat-card class="example-card" [ngStyle]="{'background-image': 'url(\'../../../assets/images/back2.svg\')'}" >
-        <mat-card-header class="card-header">
-            <mat-card-title>
-            <textarea class="card-head-title" type="text" placeholder="Title" rows="1" cols="50" [value]="noteTitle" (change)="changeTitle($event)"></textarea>
-            </mat-card-title>
-            <img src="../../../assets/images/pushpin.svg" alt="change image"  >
-        </mat-card-header>
-        <mat-card-content>
-         
-            <textarea class="card-middle-content" id="w3review" name="w3review" rows="3" cols="50" placeholder="Take a note..." [value]="noteContext" (change)="changeNote($event)" ></textarea>
-            
-        </mat-card-content>
-        <mat-card-actions >
-            <div class="icon-h-bar">
 
-                <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-                    <mat-icon><img src="../../../assets/images/addalert.svg" alt="" class="icon-img" /></mat-icon>
-                </button>
-                <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-                    <mat-icon><img src="../../../assets/images/addperson.svg" alt="" class="icon-img"/></mat-icon>
-                </button>
-                <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-                    <mat-icon><img src="../../../assets/images/color.svg" alt="" class="icon-img"/></mat-icon>
-                </button>
-                <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-                    <mat-icon><img src="../../../assets/images/image.svg" alt=""class="icon-img" /></mat-icon>
-                </button>
-                <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-                    <mat-icon><img src="../../../assets/images/archive.svg" alt="" class="icon-img"/></mat-icon>
-                </button>
-                <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-                    <mat-icon><img src="../../../assets/images/dotver.svg" alt="" class="icon-img"/></mat-icon>
-                </button>
-                <button (click)="OnSubmit()" *ngIf="IsUpdate">close</button><!---->
+<div class="container">
+    <div class="inner-wrapper" >
+
+      <div class="card" >
+        <div class="inner-card" >
+          <div class="content">
+        
+            <b><div role="textbox" tabindex="0" contenteditable="true" class="cont-class"  [textContent]="noteTitle" (input)="changeNoteTitle($event)">
+                
+            </div></b>
+            
+            <div role="textbox" tabindex="0" contenteditable="true" class="cont-class"  [textContent]="noteContext" (input)="changeNoteContent($event)">
+               
             </div>
-        </mat-card-actions>
-</mat-card>
-  
+          
+          </div>
+          <div class="btn-wrapper">
+            <app-icon class="icon-box"></app-icon>
+            <button mat-button class="icon-img-close" (click)="onDataUpdate()" >Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

@@ -25,10 +25,12 @@ export class IconComponent {
 
   GetEvent(note:any,opt:number)
   {
+    
     let notedata={
       noteId : note,
       opte:opt
     }
+    
     this.messageEvent.emit(notedata);
   }
 
@@ -39,6 +41,7 @@ export class IconComponent {
       opte: opt,
       color: changeColor
     }
+    
     this.messageEvent.emit(notedatas);
   }
 

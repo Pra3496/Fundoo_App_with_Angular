@@ -2,52 +2,73 @@
 
 
 
-<form [formGroup]="NoteData" (ngSubmit)="onSubmit()">
+<!-- <form [formGroup]="NoteData" (ngSubmit)="onSubmit()">
     
     <mat-card class="example-card">
         <mat-card-header (click)="toggleDiv()" class="card-header">
             <mat-card-title>
-            <textarea class="card-head-title" type="text" placeholder="Title" rows="1" cols="50" formControlName="tittle"  [disabled]="true"></textarea>
+                <b><div role="textbox" tabindex="0" contenteditable="true" class="cont-class-title" placeholder="Take a note" formControlName="tittle" >
+                            qqqqqqqqqqqqq</div></b>
             </mat-card-title>
-            <img src="../../../assets/images/pushpin.svg" alt="change image" [style.display]="'none'" id="#myicon-pin">
-            <img src="../../../assets/images/Checkbox.svg" alt="Newlist" id="#myicon-t-1">&nbsp;&nbsp;&nbsp;&nbsp;
-            <img src="../../../assets/images/brush.svg" alt="Drawing" id="#myicon-t-2">&nbsp;&nbsp;&nbsp;&nbsp;
-            <img src="../../../assets/images/image.svg" alt="change image" id="#myicon-t-3">
+            <div class="dis-icon">
+                <img src="../../../assets/images/pushpin.svg" alt="change image" [style.display]="'none'" id="#myicon-pin">
+                <img src="../../../assets/images/Checkbox.svg" alt="Newlist" id="#myicon-t-1">
+                <img src="../../../assets/images/brush.svg" alt="Drawing" id="#myicon-t-2">
+                <img src="../../../assets/images/image.svg" alt="change image" id="#myicon-t-3">
+            </div>
         </mat-card-header>
         <mat-card-content #myDiv [style.display]="'none'">
          
-            <textarea class="card-middle-content" id="w3review" name="w3review" rows="3" cols="50" placeholder="Take a note..." formControlName="note"></textarea>
-            
+            <div role="textbox" tabindex="0" contenteditable="true" class="cont-class-note" [ngStyle]="changeDisply()"  formControlName="note">
+                Note
+            </div>
+
         </mat-card-content>
         <mat-card-actions #myicon [style.display]="'none'">
-            <div class="icon-h-bar">
-
-                <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-                    <mat-icon><img src="../../../assets/images/addalert.svg" alt="" class="icon-img" /></mat-icon>
-                </button>
-                <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-                    <mat-icon><img src="../../../assets/images/addperson.svg" alt="" class="icon-img"/></mat-icon>
-                </button>
-                <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-                    <mat-icon><img src="../../../assets/images/color.svg" alt="" class="icon-img"/></mat-icon>
-                </button>
-                <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-                    <mat-icon><img src="../../../assets/images/image.svg" alt=""class="icon-img" /></mat-icon>
-                </button>
-                <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-                    <mat-icon><img src="../../../assets/images/archive.svg" alt="" class="icon-img"/></mat-icon>
-                </button>
-                <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-                    <mat-icon><img src="../../../assets/images/dotver.svg" alt="" class="icon-img"/></mat-icon>
-                </button>
-
+            <div class="btn-wrapper">
+                <app-icon class="note-show-icon"></app-icon>
                 <button mat-button class="icon-img-close" type="submit" [disabled]="NoteData.invalid">close</button>
-
-                
-               
             </div>
         </mat-card-actions>
     </mat-card>
 
-    </form>
+    </form>  -->
+
+
+           <div class="card" >
+            <div class="inner-card" >
+                <form [formGroup]="NoteData" (ngSubmit)="onSubmit()">
+                    <div class="content" >
+                        <div class="trigger-con-before" [ngStyle]="changeDisplytriger()">
+                            <input type="text" class="int-box" placeholder="Take a Note....." (click)="toggle()" />
+                            <div class="dis-icon" >
+                                <img src="../../../assets/images/pushpin.svg" alt="change image" [style.display]="'none'" id="#myicon-pin">
+                                <img src="../../../assets/images/Checkbox.svg" alt="Newlist" id="#myicon-t-1">
+                                <img src="../../../assets/images/brush.svg" alt="Drawing" id="#myicon-t-2">
+                                <img src="../../../assets/images/image.svg" alt="change image" id="#myicon-t-3">
+                            </div>
+                        </div>
+                      
+                        <div  [ngStyle]="changeDisply()">
+                            <b><div role="textbox" tabindex="0" contenteditable="true" class="cont-class-title"  [textContent]="noteTitle" (input)="changeNoteTitle($event)" >
+                                
+                            </div></b>
+                            <div role="textbox" tabindex="0" contenteditable="true" class="cont-class-note"  [textContent]="noteContext" (input)="changeNoteContent($event)">
+                               
+                               </div>
+                               <div class="btn-wrapper" [ngStyle]="changeDisplyflex()" >
+                                   <app-icon class="icon-box"></app-icon>
+                                   <button mat-button class="icon-img-close" type="submit" (click)="onSubmit()">close</button>
+                               </div>
+                            
+                        </div>  
+                    
+                      
+                    
+                    </div>
+                  
+                </form>
+            </div>
+          </div> 
+
    

@@ -1,18 +1,64 @@
 
 
-<div class="note-show">
-  <div *ngFor="let note of noteArrData | searchNote: myValue" class="main-container" id="{{note.noteId}}" [ngStyle]="changecolor(note)">
-    
-       <div class="container" (click)="openDialog(note)" >
-         <h4><b>{{note.tittle}}</b></h4> 
-         <p class="notedata">{{note.note}}</p> 
-       </div>
-       <div class="note-show-icon">
-           <app-icon [note]="note" (messageEvent) = "SendToGet($event)"></app-icon>   
-       </div>
-    
- </div>
+  <!-- <div class="note-show">
+    <div *ngFor="let note of noteArrData | searchNote: myValue" class="main-container" id="{{note.noteId}}" [ngStyle]="changeImage(note)">
+      
+        <div class="container" (click)="openDialog(note)" >
+          <h4><b>{{note.tittle}}</b></h4> 
+            
+        </div>
+        <div>
+          <p>{{note.note}}</p>
+        </div>
+        <div class="note-show-icon">
+            <app-icon [note]="note" (messageEvent) = "SendToGet($event)"></app-icon>   
+        </div>
+      
+  </div>
+  </div> -->
+<!-- 
+<div class="container"> 
+  <div class="row">
+    <div [ngStyle]="changecolor(note)" class="card" *ngFor="let note of noteArrData | searchNote: myValue"  id="{{note.noteId}}"  >
+       
+          <h4 (click)="openDialog(note)"><b>{{note.tittle}}</b></h4> 
+       
+        
+          <div class="ad" (click)="openDialog(note)">
+            <p>{{note.note}}</p>
+          </div>
+       
+        
+          <app-icon [note]="note" (messageEvent) = "SendToGet($event)" class="note-show-icon"></app-icon>   
+      
+    </div>
+  </div>
+</div> -->
+
+
+<div class="wrapper">
+  <div class="container">
+    <div class="inner-wrapper" >
+
+      <div class="card" *ngFor="let note of noteArrData | searchNote: myValue"  id="{{note.noteId}}">
+        <div class="inner-card" [ngStyle]="changecolor(note)">
+          <div class="content" (click)="openDialog(note)">
+            <h4><b>{{note.tittle}}</b></h4> 
+            
+            <p>{{note.note}}</p>
+          
+          </div>
+          <div class="btn-wrapper">
+            <app-icon [note]="note" (messageEvent) = "SendToGet($event)" class="icon-box"></app-icon>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
 </div>
+
 
     
 

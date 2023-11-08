@@ -39,8 +39,7 @@ export class NotesComponent {
 
     SendToGet($event:any)
     {
-      //this.messageEventNote.emit($event);
-      console.log($event.color);
+      this.messageEventNote.emit($event);
       this.ChangeColorFromNote($event);
     }
 
@@ -54,8 +53,9 @@ export class NotesComponent {
   
 
       const dialogRef = this.dialog.open(EditNoteComponent,{
-        width:"460px",
-        height:"171px",
+        width:"480px",
+        height:"auto",
+       
          data:note
       });
 
@@ -70,27 +70,17 @@ export class NotesComponent {
     }
 
     changecolor(chcolor:any){
-     
+      
       return {
-        'background-color': chcolor.color
-        // 'background-image': 'url("../../../assets/images/back2.svg")'
+        'background-color': "#"+chcolor.color
       };
     }
 
-    changeImage(chImg:any){
-      if(chImg == null)
-      {
-        return {
-          'background-image': 'none'
-        };
-      }
-      return {
-        'background-image': chImg.image
-      };
-    }
+ 
 
     ChangeColorFromNote(data:any)
     {
+      
       this.noteservice.UpdateColor(data).subscribe((response:any)=>{
         
         for (const note of this.noteArrData) {
@@ -101,7 +91,7 @@ export class NotesComponent {
           }
         }
         this.dataservice.changeMessage(this.noteArrData);
-        console.log(this.noteArrData);
+        
 
       });
     }

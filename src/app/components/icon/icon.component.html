@@ -2,19 +2,22 @@
 
 
 
-<div class="icon-box">
+
         <mat-icon><img src="../../../assets/images/addalert.svg" alt="" class="icon-img" (click)="GetEvent(note.noteId,1)"/></mat-icon>
         <mat-icon><img src="../../../assets/images/addperson.svg" alt="" class="icon-img"  /></mat-icon>
         <mat-icon   [matMenuTriggerFor]="menu" #menuTrigger><img src="../../../assets/images/color.svg" alt="" class="icon-img"  /></mat-icon>
         <mat-menu #menu="matMenu">
                 <div class="areaCls">
-                 <button mat-fab color="warn" (click)="ChangeColorEvent(note.noteId,3,'red')"></button>
-                 <button mat-fab color="primary" (click)="ChangeColorEvent(note.noteId,3,'orange')"></button>
-                 <button mat-fab color="accent" (click)="ChangeColorEvent(note.noteId,3,'purple')"></button>
+                 <button mat-fab color="warn" class="color-btn" (click)="ChangeColorEvent(note.noteId,3,'faafa8')"></button>
+                 <button mat-fab color="primary" class="color-btn" (click)="ChangeColorEvent(note.noteId,3,'f39f76')"></button>
+                 <button mat-fab color="accent" class="color-btn" (click)="ChangeColorEvent(note.noteId,3,'fff8b8')"></button>
+                 <button mat-fab color="accent" class="color-btn" (click)="ChangeColorEvent(note.noteId,3,'e2f6d3')"></button>
+                 <button mat-fab color="accent" class="color-btn" (click)="ChangeColorEvent(note.noteId,3,'b4ddd3')"></button>
+                 <button mat-fab color="accent" class="color-btn" (click)="ChangeColorEvent(note.noteId,3,'d4e4ed')" style="background-color: #d4e4ed;"></button>
                 </div>
         </mat-menu>
         <mat-icon><img src="../../../assets/images/image.svg" alt=""class="icon-img" (click)="GetEvent(note.noteId,4)" /></mat-icon>
         <mat-icon><img src="../../../assets/images/archive.svg" alt="" class="icon-img" (click)="GetEvent(note.noteId,5)" /></mat-icon>
         <mat-icon><img src="../../../assets/images/dotver.svg" alt="" class="icon-img" (click)="GetEvent(note.noteId,6)"  /></mat-icon>
-</div>
+
 

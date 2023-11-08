@@ -9,11 +9,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class EditNoteComponent implements OnInit{
   noteEdit: any;
-  noteTitle!: string;
-  noteContext!:string;
+  
+  noteTitle!: any;
+  noteContext!:any;
   noteId!:any;
-  IsUpdate = false;
- 
+
   
   
   constructor(public dialogRef: MatDialogRef<EditNoteComponent>,@Inject(MAT_DIALOG_DATA) public data: any) { }
@@ -26,32 +26,28 @@ export class EditNoteComponent implements OnInit{
   }
 
 
-  changeTitle(e:any)
+  changeNoteTitle(e:any)
   {
-    this.noteTitle = e.target.value;
-    this.IsUpdate = true;
+    this.noteTitle = (e.target as HTMLElement).textContent?.toString();
+    
   }
 
-  changeNote(e:any)
+  changeNoteContent(e:any)
   {
-    this.noteContext = e.target.value;
+    this.noteContext = (e.target as HTMLElement).textContent?.toString();
+    
   }
-  //
-
-  OnSubmit()
-  {
   
+  onDataUpdate(){
     let editPaylod = {
       noteId:this.noteId,
       title:this.noteTitle,
       note:this.noteContext
     }
-    this.closeWithResult(editPaylod);
+    this.dialogRef.close(editPaylod);
   }
 
 
-  closeWithResult(result: any) {
-    this.dialogRef.close(result);
-  }
+
 
 }

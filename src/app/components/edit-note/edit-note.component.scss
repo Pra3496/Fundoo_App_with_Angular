@@ -1,43 +1,64 @@
 
-.card-head-pin-icon{
-    float: right;
-    
-}
 
-input[type="text"],
-textarea {
- border: none;
-  outline: none;
-  resize: none;
-  width: inherit;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-}
 
-.icon-h-bar{
-    display: flex;
-    width: 100%;
-    //
-   
-
-  }
+.inner-card  {
   
+  background-image: url('../../../assets/images/googleback.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  padding: 15px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  width:450px;
+  min-height: 140px;
+}
+
+.content {
+  margin-bottom: 20px;
+  max-height: 450px;
+}
+
+.cont-class {
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 40px;
+  outline: none;
+  
+}
+.btn-wrapper {
+
+  display: flex;
+  text-align: center;
+  cursor: pointer;
 
 
-  .main-card{
-   width: 100%;
+} 
+
+.icon-img-close{
+
+  margin-left: 40px;
  
-  }
+}
 
-  .card-header{
-    display: flex;
-   
-  }
+.icon-box{
+  display: flex;
+  gap: 40px;
+  width: 100%;
+}
 
-  .card-head-title{
-    background-color: transparent;
-  }
 
-  .card-middle-content{
-    background-color: transparent;
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

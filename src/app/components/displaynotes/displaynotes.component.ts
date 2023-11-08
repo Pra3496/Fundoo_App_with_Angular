@@ -11,64 +11,101 @@ import { NotesService } from 'src/app/services/notes.service';
 export class DisplaynotesComponent implements OnInit{
   NoteData!:FormGroup;
 
-  constructor(private formBuilder: FormBuilder,private _noteService: NotesService){}
+  constructor(private _noteService: NotesService){}
 
-  @ViewChild('myDiv', { static: false }) myDiv!: ElementRef;
-  @ViewChild('myicon', { static: false }) myicon!: ElementRef;
 
   @Output() messageEventToCreateNote : EventEmitter<any> = new EventEmitter();
+  update = false;
+  noteTitle!: any;
+  noteContext!:any;
 
-
-
-  // Function to toggle the display property of the div
-  toggleDiv() {
-    const divElement = this.myDiv.nativeElement as HTMLDivElement;
-    const divElement1 = this.myicon.nativeElement as HTMLDivElement;
-
-    if (divElement.style.display === 'none') {
-      divElement.style.display = 'block'; // or any other display value
-      divElement1.style.display = 'block';
-    
-    } else {
-      divElement.style.display = 'none';
-      divElement1.style.display = 'none';
-
-    }
-  }
 
   ngOnInit() 
   {
-      this.NoteData = this.formBuilder.group({
-        tittle:['',Validators.required],
-        note:['',Validators.required]
-      
-      });
+     this.noteTitle = '';
+     this.noteContext = '';
   }
 
-  get f() { return this.NoteData.controls; }
+  changeNoteTitle(e:any)
+  {
+    this.noteTitle = (e.target as HTMLElement).textContent?.toString();
+    
+  }
+
+  changeNoteContent(e:any)
+  {
+    this.noteContext = (e.target as HTMLElement).textContent?.toString();
+    
+  }
+
+ 
   onSubmit() 
   {
-      
-
-      if (this.NoteData.invalid) {
-          return;
-      }
-      else{
-        this._noteService.CreateNote(this.NoteData.value.tittle,this.NoteData.value.note).subscribe((response:any)=>{
+    let data ={
+      title:this.noteTitle,
+      note:this.noteContext
+    }
+     
+        this._noteService.CreateNote(data.title,data.note).subscribe((response:any)=>{
           console.log(response.data),
           this.messageEventToCreateNote.emit(response.data);
         });
-    
-        this.onReset();
-      }
-      
-     
+        
+        this.toggle();
+        this.noteTitle = '';
+        this.noteContext = '';
   }
 
-  onReset() 
+
+  toggle()
   {
-      
-      this.NoteData.reset();
+    
+    if(this.update)
+    {
+      this.update = false;
+    }
+    else{
+      this.update = true;
+    }
+  }
+
+  changeDisply()
+  {
+    if(this.update)
+    {
+      return{
+        'display': 'block'
+      }
+    }
+    return{
+      'display': 'none'
+    }
+  }
+
+  changeDisplyflex()
+  {
+    if(this.update)
+    {
+      return{
+        'display': 'flex'
+      }
+    }
+    return{
+      'display': 'none'
+    }
+  }
+
+  changeDisplytriger()
+  {
+    if(this.update)
+    {
+      return{
+        'display': 'none'
+      }
+    }
+    return{
+      'display': 'flex'
+    }
   }
 
 

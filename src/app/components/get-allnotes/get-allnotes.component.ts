@@ -48,15 +48,18 @@ export class GetAllnotesComponent implements OnInit, OnDestroy {
   ngOnInit() {
     
     this.GetAllNotes();
+    if(this.responseSuccessul)
+    {
+      localStorage.removeItem('token');
+      this.router.navigateByUrl('/login');
+    }
     this.subscription = this.dataservice.currentMessage.subscribe(note => this.noteArry = note);
 
     if (!this.myValue) {
       this.noteArry = this.noteArry;
     }
   
-    this.noteArry = this.noteArry.filter(
-      note => note.tittle.toLowerCase().includes(this.myValue.toLowerCase()) || note.note.toLowerCase().includes(this.myValue.toLowerCase())
-    );
+    
     console.log(this.noteArry);
   }
 
@@ -74,6 +77,8 @@ export class GetAllnotesComponent implements OnInit, OnDestroy {
       console.log(this.noteArry);
       this.responseSuccessul = true
     });
+
+
     
   }
 
